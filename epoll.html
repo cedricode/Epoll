@@ -1,13 +1,44 @@
 <head>
-    <title>hello</title>
+    <title>
+        Share your opinion online, anywhere, anytime
+    </title>
 </head>
 
 <body>
-<h1>Welcome to Meteor!</h1>
+<div class="navbar navbar-static-top navbar-inverse">
 
-{{> hello}}
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="/">Epoll</a>
+            <ul class="nav pull-right">
+                <li>
+                    {{>loginButtons}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container" id="main">
+    {{>banner}}
+</div>
 </body>
 
-<template name="hello">
+<!--<template name="hello">
     <input type="button" value="Click me">
+</template>-->
+
+<template name="banner">
+
+    <div class="container">
+        <div class="row">
+            <div class="span6">
+                <div class="well">
+                    <h4>Sign in using Twitter to submit new
+                    questions or to vote.
+                    </h4>
+                    {{>loginButtons}}
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
