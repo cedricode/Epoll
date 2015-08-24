@@ -9,7 +9,7 @@ if (Meteor.isClient) {
 
     //events
     Template.hello.events({
-        "click input": function () {
+        'click input': function () {
             if (typeof console !== "undefined")
                 console.log("You pressed the button");
         }
