@@ -5,6 +5,9 @@
 </head>
 
 <body>
+
+<!--
+
 <div class="navbar navbar-static-top navbar-inverse">
 
     <div class="navbar-inner">
@@ -18,8 +21,19 @@
         </div>
     </div>
 </div>
+-->
+
 <div class="container" id="main">
-    {{>banner}}
+
+    <!--如果是当前用户 显示添加问题区域-->
+    {{#if currentUser}}
+        {{>addQuestion}}
+    {{/if}}
+
+    {{#unless currentUser}}
+        {{>banner}}
+    {{/unless}}
+
 </div>
 </body>
 
@@ -34,11 +48,20 @@
             <div class="span6">
                 <div class="well">
                     <h4>Sign in using Twitter to submit new
-                    questions or to vote.
+                        questions or to vote.
                     </h4>
                     {{>loginButtons}}
                 </div>
             </div>
         </div>
     </div>
+</template>
+
+<template name="addQuestion">
+
+    <textarea rows="3" class="input-xxlarge" name="questionText" id="questionText"
+              placeholder="Add your question"></textarea>
+    <br/>
+    <input type="button" class="btn-info add-question" value="Add Question"/>
+
 </template>
