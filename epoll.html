@@ -34,6 +34,8 @@
         {{>banner}}
     {{/unless}}
 
+    {{>questions}}
+
 </div>
 </body>
 
@@ -64,4 +66,29 @@
     <br/>
     <input type="button" class="btn-info add-question" value="Add Question"/>
 
+</template>
+
+<template name="questions">
+    <h2>All questions</h2>
+    {{#each items}}
+        {{>question}}
+    {{/each}}
+</template>
+
+
+<template name="question">
+
+    <div>
+        <p class="lead">
+
+            {{questionText}}
+            <a class="btn btn-small btn-success yes {{#unless currentUser}}disabled{{/unless}}"
+               href="#"><i class="icon-thumbs-up"></i>Yes </a>
+
+            <a class="btn btn-small btn-danger no {{#unless currentUser}}disabled{{/unless}}"
+               href="#"><i class="icon-thumbs-up"></i>No</a>
+
+            <b>{{num}}</b>
+        </p>
+    </div>
 </template>

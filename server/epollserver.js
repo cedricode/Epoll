@@ -16,8 +16,17 @@ Meteor.methods({
             'questionText': text,
             'submittedOn': new Date(),
             //'submittedBy': Meteor.user().profile.name + "_" + Meteor.userId()
-            'submittedBy':Meteor.userId()
+            'submittedBy': Meteor.userId()
         });
         return questionId;
+    },
+    incrementYesVotes: function (questionId) {
+
+        console.log("incrementYes:" + questionId);
+        Questions.update(questionId, {$inc: {num: 1}});
+    },
+    incrementNoVotes: function (questioId) {
+        console.log("incementNo:" + questioId);
+        Questions.update(questioId, {$inc: {num: -1}});
     }
 });
