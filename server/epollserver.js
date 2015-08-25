@@ -16,7 +16,8 @@ Meteor.methods({
             'questionText': text,
             'submittedOn': new Date(),
             //'submittedBy': Meteor.user().profile.name + "_" + Meteor.userId()
-            'submittedBy': Meteor.userId()
+            'submittedBy': Meteor.userId(),
+            'num': 0
         });
         return questionId;
     },

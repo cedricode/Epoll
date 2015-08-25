@@ -32,7 +32,7 @@ Template.addQuestion.events({
 
 Template.questions.helpers({
     items: function () {
-        return Questions.find({}, {sort: {'submittedOn': -1}});
+        return Questions.find({}, {sort: {'num': -1}});
     }
 });
 
