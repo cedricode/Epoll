@@ -40,14 +40,14 @@ Meteor.methods({
         });
         return questionId;
     },
-    incrementYesVotes: function (questionId) {
+    incrementYesVotes: function (answerId) {
 
-        console.log("incrementYes:" + questionId);
-        Questions.update(questionId, {$inc: {num: 1}});
+        console.log("incrementYes:" + answerId);
+        Answers.update(answerId, {$inc: {num: 1}});
     },
-    incrementNoVotes: function (questioId) {
-        console.log("incementNo:" + questioId);
-        Questions.update(questioId, {$inc: {num: -1}});
+    incrementNoVotes: function (answerId) {
+        console.log("incementNo:" + answerId);
+        Answers.update(answerId, {$inc: {num: -1}});
     },
     deleteQuestion: function (questionId) {
         console.log("deleteVote:" + questionId);
