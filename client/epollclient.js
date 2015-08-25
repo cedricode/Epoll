@@ -40,8 +40,8 @@ Template.question.events({
     "click": function () {
         Session.set("selected_questionId", this._id);
     },
-    "click a.yes": function (event) {
 
+    "click a.yes": function (event) {
         event.preventDefault();
         if (Meteor.userId()) {
             var selected_questionId = Session.get("selected_questionId");
@@ -49,12 +49,34 @@ Template.question.events({
             Meteor.call("incrementYesVotes", selected_questionId);
         }
     },
+
     "click a.no": function (event) {
         event.preventDefault();
         if (Meteor.userId()) {
             var selected_questionId = Session.get("selected_questionId");
             console.log("updating no count for questionid" + selected_questionId);
             Meteor.call("incrementNoVotes", selected_questionId);
+        }
+    },
+    "click a.delete": function (event) {
+        event.preventDefault();
+        if (Meteor.userId()) {
+            var selected_questionId = Session.get("selected_questionId");
+            /*if (confirm("Really delete this question?")) {
+                console.log("delete for questionid" + selected_questionId);
+                Meteor.call("deleteVote", selected_questionId);
+            }*/
+
+            BootstrapModalPrompt.prompt({
+                title: "Confirm",
+                content: "Do you really want to confirm whatever?"
+            }, function(result) {
+                if (result) {
+                    console.log("delete for questionid" + selected_questionId);
+                    Meteor.call("deleteVote", selected_questionId);
+                }
+            });
+
         }
     }
 });

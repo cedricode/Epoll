@@ -6,22 +6,6 @@
 
 <body>
 
-<!--
-
-<div class="navbar navbar-static-top navbar-inverse">
-
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="brand" href="/">Epoll</a>
-            <ul class="nav pull-right">
-                <li>
-                    {{>loginButtons}}
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
--->
 
 <div class="container" id="main">
 
@@ -87,6 +71,9 @@
 
             <a class="btn btn-small btn-danger no {{#unless currentUser}}disabled{{/unless}}"
                href="#"><i class="icon-thumbs-up"></i>No</a>
+
+            ||&nbsp;<a class="btn btn-small delete {{#unless currentUser}}disabled{{/unless}}"
+               href="#"><i class="icon-remove-sign"></i>Delete</a>
 
             <b>{{num}}</b>
         </p>

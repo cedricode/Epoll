@@ -28,5 +28,10 @@ Meteor.methods({
     incrementNoVotes: function (questioId) {
         console.log("incementNo:" + questioId);
         Questions.update(questioId, {$inc: {num: -1}});
+    },
+    deleteVote: function (questionId) {
+        console.log("deleteVote:" + questionId);
+        Questions.remove(questionId);
+
     }
 });
