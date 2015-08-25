@@ -8,6 +8,6 @@ I think I was attracted by this amazing open-source
 js platform.
 
 If you have some good ideas to improve this app,
-no hesite to contact me--magicyu90@gmail.com.
+no hesite to contact me(magicyu90@gmail.com).
 
 
