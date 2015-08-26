@@ -25,6 +25,7 @@ Answers = new Mongo.Collection("answers");
 Meteor.startup(function () {
     // code to run on server at startup
 
+
 });
 
 Meteor.methods({
@@ -36,7 +37,8 @@ Meteor.methods({
             'submittedOn': new Date(),
             //'submittedBy': Meteor.user().profile.name + "_" + Meteor.userId()
             'submittedBy': Meteor.userId(),
-            'num': 0
+            'submittedUser':Meteor.user().username
+
         });
         return questionId;
     },
@@ -47,12 +49,16 @@ Meteor.methods({
     },
     incrementNoVotes: function (answerId) {
         console.log("incementNo:" + answerId);
-        Answers.update(answerId, {$inc: {num: -1}});
+
+        if(Answers.findOne(answerId).num>0){
+            Answers.update(answerId, {$inc: {num: -1}});
+        }
+
     },
     deleteQuestion: function (questionId) {
-        console.log("deleteVote:" + questionId);
-        Answers.remove({'questionId': {$eq: questionId}});
-        Questions.remove(questionId);
+        console.log("deleteQuestion:" + questionId);
+        Answers.remove({'questionId':questionId});
+        Questions.remove({'_id':questionId});
     },
     addAnswer: function (questionId, text) {
 
@@ -62,6 +68,7 @@ Meteor.methods({
             'answerText': text,
             'submittedOn': new Date(),
             'submittedBy': Meteor.userId(),
+            'submittedUser':Meteor.user().username,
             'num': 0
         });
         return answerId;
