@@ -6,21 +6,17 @@
 
 <body>
 
-
 <div class="container" id="main">
 
+    <div id="containerFacebook">
+        {{>login}}
+    </div>
 
-    {{#if currentUser}}
-        {{>addQuestion}}
-    {{/if}}
-
-    {{#unless currentUser}}
-        {{>banner}}
-    {{/unless}}
 
     {{>questions}}
 
 </div>
+
 
 <div class="footer">
     <p>&copy;2015 iHealthLabs Europe Inc. All rights reserved.</p>
@@ -32,13 +28,26 @@
     <input type="button" value="Click me">
 </template>-->
 
+
+<template name = "login">
+    {{#if currentUser}}
+        {{currentUser.services.facebook.name}} - 
+        {{currentUser.services.facebook.gender}}
+        <button id="logout">Logout</button>
+        {{>addQuestion}}
+    {{else}}
+        <button id="facebook-login" class="btn btn-default">Login with Facebook</button>
+    {{/if}}
+</template>
+
+
 <template name="banner">
 
     <div class="container">
         <div class="row">
             <div class="span6">
                 <div class="well">
-                    <h4>Hi every iHealthLabsEu staffs,that a good place for fun!
+                    <h4>Hi every iHealthLabsEu staffs,this is a good place for fun!
                     </h4>
                     {{>loginButtons}}
                 </div>
@@ -108,3 +117,4 @@
 <template name="members">
 
 </template>
+

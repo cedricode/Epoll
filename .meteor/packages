@@ -11,3 +11,5 @@ bootstrap
 accounts-ui
 theduke:bootstrap-modal-prompt
 accounts-password
+accounts-facebook
+service-configuration
